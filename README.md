@@ -12,12 +12,12 @@ Easily add colored prefixes to logs with the lightweight console wrapper for Bro
 
 ## Installation
 ```
-$ npm install consolejs --save
+npm i console-prefixer -D
 ```
 
 ## Usuage
 ```javascript
-import consolePrefixer from 'console-prefixer' //or const consolejs = require('consolejs')
+import consolePrefixer from 'console-prefixer' //or const consolePrefixer = require('console-prefixer')
 const logger = consolePrefixer({
     defaultPrefix:{
         text:'my package \u2714',
@@ -46,7 +46,7 @@ Note: console-prefixer is not a replacement for console. All other missing metho
 
 ```javascript
 import consolePrefixer from 'console-prefixer'
-const logger = consolejs({
+const logger = consolePrefixer({
     defaultPrefix:{
         text:'my package \u2714',
         style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
@@ -68,7 +68,7 @@ Ajust log level. Everything lower will not being shown
  You can add colored prefixes per method as follows:
  ```javascript
 import consolePrefixer from 'console-prefixer'
-const logger = consolejs({
+const logger = consolePrefixer({
     defaultPrefix:
         {
             text:'my package \u2714',
@@ -90,14 +90,14 @@ If you desire to make it global can add it inside a module or add it to the wind
 
 ##### using module (recommended)
 ```javascript
-export const logger = consolejs(my_options)
+export const logger = consolePrefixer(my_options)
 ```
 
 ##### using window
 
 ```javascript
 if(!window.logger){
-    window.logger = consolejs(my_options);
+    window.logger = consolePrefixer(my_options);
 }
 ```
 You might need the following type declaration if you are using Typescript
