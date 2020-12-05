@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noEmit": false,
+    "declaration": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "outDir": "./bin/"
+  },
+  "exclude": [
+
+  ],
+  "include": [
+    "src"
+  ]
+}
