@@ -1,6 +1,6 @@
 {
   "name": "console-prefixer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Console with prefixes",
   "main": "bin/console-prefixer.js",
   "scripts": {
