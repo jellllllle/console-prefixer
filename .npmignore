@@ -5,4 +5,6 @@ node_modules/
 tsconfig
 .gitignore
 .npmignore
+README_DEV.md
+tsconfig.json
 package-lock.json

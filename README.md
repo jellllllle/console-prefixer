@@ -1,5 +1,4 @@
-#console-prefixer
-
+# console-prefixer
 Easily add colored prefixes to logs with the lightweight console wrapper for Browser or Node which also preserves line numbers. 
 
 ## features
