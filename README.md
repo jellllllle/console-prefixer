@@ -1,10 +1,10 @@
 #console-prefixer
-Lightweight console wrapper for Browser or Node which also preserves line numbers. 
+Easily add colored prefixes to logs with the lightweight console wrapper for Browser or Node which also preserves line numbers. 
 
 ## features
-* Easily adjust log levels (For example to disable logs on production)
+* Adjust log levels (For example to disable logs on production)
 * Set your own colored prefix per method.
-* Preserves line number in console (This I missed in most other loggers)
+* Preserves line number in console (This I really missed in most other loggers)
 * Create multiple loggers with different settings 
 * Types included
 
