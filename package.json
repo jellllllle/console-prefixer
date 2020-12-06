@@ -1,7 +1,7 @@
 {
   "name": "console-prefixer",
   "version": "0.1.4",
-  "description": "Console with prefixes",
+  "description": "Console with styled prefixes preserving correct line number",
   "main": "bin/console-prefixer.js",
   "scripts": {
     "test": "node ./test/test.js",
@@ -18,6 +18,8 @@
     "console",
     "debug",
     "log",
+    "style",
+    "line number",
     "prefix"
   ],
   "types": "bin/console-prefixer.d.ts",
