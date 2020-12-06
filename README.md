@@ -3,7 +3,7 @@ Easily add styled prefixes to your logs with the lightweight console wrapper for
 
 ![alt text](https://i.ibb.co/T1fy5X3/download.png)
 
-## features
+## Features
 * Adjust log levels (For example to disable logs on production)
 * Set your own styled prefix per method.
 * Preserves correct line number in console (This I really missed in most other loggers)
@@ -78,20 +78,18 @@ const logger = consolePrefixer({
             style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
         },
     prefixes: {
-        info: {
-            text:'\u2757'
+        log: {
+            text: 'my package \u2714',
+            style: 'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
         },
         info: {
-            text:'\u2757'
-        },
-        info: {
-            text:'\u2757'
-        },
+            text: '\u2757'
+        }
     }
 });
    
 logger.debug('debugging!') //no prefix
-logger.log('logging!')
+logger.log('logging list!', ['apple', 'pineapple'])
 logger.info('Here some info')
 ```
 
