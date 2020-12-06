@@ -71,16 +71,12 @@ Ajust log level. Everything lower will not being shown:
  You can also add method specific prefixes as follows:
  ```javascript
 import consolePrefixer from 'console-prefixer'
+
 const logger = consolePrefixer({
-    defaultPrefix:
-        {
-            text:'my package \u2714',
-            style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
-        },
     prefixes: {
         log: {
-            text: 'my package \u2714',
-            style: 'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
+            text: 'CL',
+            style: 'background: #3270A0; color: white;font-weight:bold; padding:2px; border-radius:20px; border: 1px solid white;'
         },
         info: {
             text: '\u2757'
@@ -88,7 +84,7 @@ const logger = consolePrefixer({
     }
 });
    
-logger.debug('debugging!') //no prefix
+logger.debug('debugging!') //no prefix because no debug prefix or defaultPrefix is set
 logger.log('logging list!', ['apple', 'pineapple'])
 logger.info('Here some info')
 ```
