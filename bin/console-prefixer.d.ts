@@ -9,7 +9,7 @@ interface IOptions {
     };
     logLevel?: 0 | 1 | 2 | 3 | 4 | 5;
 }
-declare interface ConsolePrefixerLogger {
+export declare interface ConsolePrefixerLogger {
     debug(message?: any, ...optionalParams: any[]): void;
     dir(value?: any, ...optionalParams: any[]): void;
     error(message?: any, ...optionalParams: any[]): void;

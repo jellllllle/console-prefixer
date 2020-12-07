@@ -1,13 +1,13 @@
 # console-prefixer
-Easily add styled prefixes to your logs with the lightweight (<1KB) console wrapper for Browser or Node which also preserves correct line numbers. 
+Easily add styled prefixes to your logs with the lightweight (<1KB) console wrapper for Browser or Node which also preserves the correct line numbers. 
 
 ![alt text](https://i.ibb.co/T1fy5X3/download.png)
 
 ## Features
 * Adjust log levels (For example to disable logs on production)
-* Set your own styled prefix per method.
-* Preserves correct line number in console (This I really missed in most other loggers)
-* Create multiple loggers with different settings 
+* Set your own styled prefix per method
+* Preserves the correct line number in the debug console (This I really missed in most other loggers)
+* Create multiple loggers with different settings (global or local)
 * Types included
 
 ## Installation
@@ -37,12 +37,13 @@ Will output (Chrome):
  * dir
  * group
  * groupCollapsed
+ * groupEnd
  * trace
  * info
  * warn
  * error
  
-All methods work exactly the same as it would with the console.
+All methods except 'groupEnd' will include the prefix and all methods work exactly the same as it would with the console.
    
 ### logLevel
 
@@ -108,7 +109,7 @@ window.logger = consolePrefixer(my_options);
 ```
 
 ### Multiple loggers
-You can create logger anywhere.
+You can create loggers anywhere.
 This can become in handy when you want to enable or disabled logs for a particular class or module.
 Or when you want different prefixes for different parts of the codebase.
 
