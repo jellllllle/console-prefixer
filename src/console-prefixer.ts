@@ -9,29 +9,20 @@ interface IOptions {
     logLevel?: 0 | 1 | 2 | 3 | 4 | 5
 }
 
-interface ILogger {
+export declare interface ConsolePrefixerLogger {
     debug(message?: any, ...optionalParams: any[]): void;
-
     dir(value?: any, ...optionalParams: any[]): void;
-
     error(message?: any, ...optionalParams: any[]): void;
-
     group(groupTitle?: string, ...optionalParams: any[]): void;
-
     groupCollapsed(groupTitle?: string, ...optionalParams: any[]): void;
-
     groupEnd(): void;
-
     info(message?: any, ...optionalParams: any[]): void;
-
     log(message?: any, ...optionalParams: any[]): void;
-
     trace(message?: any, ...optionalParams: any[]): void;
-
     warn(message?: any, ...optionalParams: any[]): void;
 }
 
-export = function (options: IOptions): ILogger {
+export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
     if (!options) options = {}
     const prefixes = options.prefixes || {}
     const debug = {};
@@ -54,5 +45,5 @@ export = function (options: IOptions): ILogger {
     });
     debug['groupEnd'] = console.groupEnd;
 
-    return debug as ILogger
+    return debug as ConsolePrefixerLogger
 }

@@ -1,4 +1,4 @@
-const consolePrefixer = require('../bin/console-prefixer');
+const {consolePrefixer} = require('../bin/console-prefixer');
 
 const logger = consolePrefixer({
     defaultPrefix: {

@@ -25,7 +25,7 @@
   "types": "bin/console-prefixer.d.ts",
   "author": "Jelle Barendregt",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/plac/socios_frontend_utils#readme",
+  "homepage": "https://github.com/vagasvau/console-prefixer",
   "devDependencies": {
     "@types/node": "^14.14.10",
     "typescript": "^3.7.2",

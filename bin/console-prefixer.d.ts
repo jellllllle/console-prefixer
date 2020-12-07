@@ -9,7 +9,7 @@ interface IOptions {
     };
     logLevel?: 0 | 1 | 2 | 3 | 4 | 5;
 }
-interface ILogger {
+declare interface ConsolePrefixerLogger {
     debug(message?: any, ...optionalParams: any[]): void;
     dir(value?: any, ...optionalParams: any[]): void;
     error(message?: any, ...optionalParams: any[]): void;
@@ -21,5 +21,5 @@ interface ILogger {
     trace(message?: any, ...optionalParams: any[]): void;
     warn(message?: any, ...optionalParams: any[]): void;
 }
-declare const _default: (options: IOptions) => ILogger;
-export = _default;
+export declare function consolePrefixer(options: IOptions): ConsolePrefixerLogger;
+export {};
