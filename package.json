@@ -1,8 +1,9 @@
 {
   "name": "console-prefixer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Console with styled prefixes preserving correct line number",
-  "main": "dist/console-prefixer.js",
+  "main": "dist/console-prefixer",
+  "typings": "dist/console-prefixer",
   "scripts": {
     "test": "node ./test/test.js",
     "dev": "tsc --watch --outDir dist/",
