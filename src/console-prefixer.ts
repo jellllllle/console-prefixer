@@ -35,10 +35,15 @@ export declare interface ConsolePrefixerLogger {
     getOptions(): IOptions
 }
 
+declare global {
+    let logger: ConsolePrefixerLogger
+}
+
 export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
     if (!options) options = {}
     const prefixes = options.prefixes || {}
     const debug = {};
+
     //!!!!make sure added names are (message?: any, ...optionalParams: any[]) functions!!!!
     function bind() {
         [['debug'], ['dir', 'log', 'group', 'groupCollapsed', 'trace'], ['info'], ['warn'], ['error']].forEach((attrs, index) => {
@@ -59,6 +64,7 @@ export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
             }
         });
     }
+
     bind();
     debug['groupEnd'] = console.groupEnd;
     debug['setOptions'] = (newOptions: IOptions) => {
@@ -69,6 +75,8 @@ export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
         return options;
     }
     debug['getOptions'] = () => options;
-
+    debug['makeGlobal'] = () => {
+        logger = debug as ConsolePrefixerLogger
+    }
     return debug as ConsolePrefixerLogger
 }
