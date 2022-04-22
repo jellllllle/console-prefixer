@@ -77,7 +77,13 @@ export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
         return debug;
     }
     debug['prefix'] = (prefix: IPrefix): ConsolePrefixerLogger => {
-        return consolePrefixer({...options, defaultPrefix: prefix});
+        return consolePrefixer({
+            defaultPrefix: prefix,
+            logLevel: options.logLevel
+        });
+    }
+    debug['force'] = (): ConsolePrefixerLogger => {
+        return consolePrefixer({...options, logLevel: 5});
     }
     debug['getOptions'] = () => options;
     // debug['makeGlobal'] = () => {
