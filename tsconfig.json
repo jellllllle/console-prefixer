@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
-    "outDir": "./bin/"
+    "outDir": "./dist/"
   },
   "exclude": [
 

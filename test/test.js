@@ -1,4 +1,4 @@
-const {consolePrefixer} = require('../bin/console-prefixer');
+const {consolePrefixer} = require('../dist/console-prefixer');
 
 const logger = consolePrefixer({
     defaultPrefix: {
@@ -22,3 +22,16 @@ logger.groupCollapsed('groupCollapsed');
 logger.groupEnd();
 logger.trace('trace');
 logger.warn('warn');
+
+logger.setOptions({
+    logLevel: 1,
+    defaultPrefix: {
+        text: '[test 2]',
+        style: 'background: red;',
+    },
+});
+
+if (logger.getOptions().logLevel !== 1) {
+    throw new Error('Options not changed!');
+}
+logger.debug('debug 2');

@@ -20,6 +20,8 @@ export declare interface ConsolePrefixerLogger {
     log(message?: any, ...optionalParams: any[]): void;
     trace(message?: any, ...optionalParams: any[]): void;
     warn(message?: any, ...optionalParams: any[]): void;
+    setOptions(options: IOptions): IOptions;
+    getOptions(): IOptions;
 }
 export declare function consolePrefixer(options: IOptions): ConsolePrefixerLogger;
 export {};

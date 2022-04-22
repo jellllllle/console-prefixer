@@ -1,5 +1,5 @@
 # console-prefixer
-Easily add styled prefixes to your logs with the lightweight (<1KB) console wrapper for Browser or Node which also preserves the correct line numbers. 
+Easily add styled prefixes to your logs with the lightweight (<1KB) console wrapper for ES5 supported Browsers or Node which also preserves the correct line numbers. 
 
 ![alt text](https://i.ibb.co/T1fy5X3/download.png)
 
@@ -15,7 +15,7 @@ Easily add styled prefixes to your logs with the lightweight (<1KB) console wrap
 npm i console-prefixer --save
 ```
 
-## Usuage
+## Usage
 ```javascript
 import {consolePrefixer} from 'console-prefixer' //or const {consolePrefixer} = require('console-prefixer')
 const logger = consolePrefixer({
@@ -31,7 +31,7 @@ logger.log('Hey there!');
 Will output (Chrome):
 ![alt text](https://i.ibb.co/LN8FxhW/Screenshot-7.png)
 
-### Methods
+### Log Methods
  * debug
  * log
  * dir
@@ -42,32 +42,24 @@ Will output (Chrome):
  * info
  * warn
  * error
- 
-All methods except 'groupEnd' will include the prefix and all methods work exactly the same as it would with the console.
    
-### logLevel
+All methods work exactly the same as it would with the console.
 
-```javascript
-import {consolePrefixer} from 'console-prefixer'
-const logger = consolePrefixer({
-    defaultPrefix:{
-        text:'my package \u2714',
-        style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
-    },
-    logLevel: 1,
-});
-   
-logger.log('Hey there!');
-```
-Ajust log level. Everything lower will not being shown:
- * 0 debug (default)
- * 1 log, dir, log, group, groupCollapsed, trace
- * 2 info
- * 3 warn
- * 4 error
- * 5 disable all
+### Other Methods
+ * setOptions(options) -> new options
+ * getOptions() -> options
+
+To change the options you can either recall consolePrefixer or alter it with the setOptions method 
+
+## Options
+ * defaultPrefix
+ * prefixes
+ * logLevel
+
+### defaultPrefix
+All methods except 'groupEnd' will include the prefix.
  
- ### Method specific prefix
+### prefixes
  You can also add method specific prefixes as follows:
  ```javascript
 import {consolePrefixer} from 'console-prefixer'
@@ -94,24 +86,60 @@ Will output (Chrome):
 
 If a method doesnt have a specific prefix, defaultPrefix will be used. If there is also no defaultPrefix, no prefix will be used for this method.
  
-### Make global
-If you desire to make it global you can add it inside a module or add it to the window
-
-##### Using module (recommended)
+### logLevel
 ```javascript
-export const logger = consolePrefixer(my_options);
+import {consolePrefixer} from 'console-prefixer'
+const logger = consolePrefixer({
+    defaultPrefix:{
+        text:'my package \u2714',
+        style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
+    },
+    logLevel: 1,
+});
+   
+logger.log('Hey there!');
 ```
+Ajust log level. Everything lower will not being shown:
+ * 0 debug (default)
+ * 1 log, dir, log, group, groupCollapsed, trace
+ * 2 info
+ * 3 warn
+ * 4 error
+ * 5 disable all
 
-##### Using window (browser only)
+## Usage inside your codebase
+
+### Use a logger anywhere
+You don't want to setup a logger every time so make it accessible 
+
+#### Using window (browser only)
 
 ```javascript
 window.logger = consolePrefixer(my_options);
+```
+```javascript
+//any other file
+logger.log('test')
+```
+
+
+#### Using module
+```javascript
+//debug.js
+export const logger = consolePrefixer(my_options);
+```
+```javascript
+//any other file
+import {logger} from './debug'
+logger.log('test')
 ```
 
 ### Multiple loggers
 You can create loggers anywhere.
 This can become in handy when you want to enable or disabled logs for a particular class or module.
 Or when you want different prefixes for different parts of the codebase.
+
+## Troubleshooting
 
 ### Styling not working?
 Not all browser or terminals support css styled logs. You might need to use another browser or download a plugin in case of Node. 
