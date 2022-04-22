@@ -52,6 +52,8 @@ All methods work exactly the same as it would with the console.
 To change the options you can either recall consolePrefixer or alter it with the setOptions method 
 
 ## Options
+Options are set with consolePrefixer(options) or you can change it at anytime with setOptions
+
  * defaultPrefix
  * prefixes
  * logLevel
@@ -94,10 +96,20 @@ const logger = consolePrefixer({
         text:'my package \u2714',
         style:'background: green; color: white;font-weight:bold; padding:2px; border-radius:2px;'
     },
-    logLevel: 1,
+    logLevel: 2,
 });
    
+//will not show
 logger.log('Hey there!');
+
+//Show all logs again, handy if you want to show or hide logs at runtime
+logger.setOptions({
+     logLevel: 0,
+})
+
+//will show again
+logger.log('Where were you!');
+
 ```
 Ajust log level. Everything lower will not being shown:
  * 0 debug (default)
