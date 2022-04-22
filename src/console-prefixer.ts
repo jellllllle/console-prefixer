@@ -33,11 +33,13 @@ export declare interface ConsolePrefixerLogger {
     setOptions(options: IOptions): IOptions
 
     getOptions(): IOptions
+
+    prefix(prefix: IPrefix): ConsolePrefixerLogger
 }
 
-declare global {
-    let logger: ConsolePrefixerLogger
-}
+// declare global {
+//     let logger: ConsolePrefixerLogger
+// }
 
 export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
     if (!options) options = {}
@@ -72,11 +74,14 @@ export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
             options[key] = newOptions[key];
         }
         bind();
-        return options;
+        return debug;
+    }
+    debug['prefix'] = (prefix: IPrefix): ConsolePrefixerLogger => {
+        return consolePrefixer({...options, defaultPrefix: prefix});
     }
     debug['getOptions'] = () => options;
-    debug['makeGlobal'] = () => {
-        logger = debug as ConsolePrefixerLogger
-    }
+    // debug['makeGlobal'] = () => {
+    //     logger = debug as ConsolePrefixerLogger
+    // }
     return debug as ConsolePrefixerLogger
 }

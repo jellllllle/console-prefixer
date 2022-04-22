@@ -22,6 +22,7 @@ export declare interface ConsolePrefixerLogger {
     warn(message?: any, ...optionalParams: any[]): void;
     setOptions(options: IOptions): IOptions;
     getOptions(): IOptions;
+    prefix(prefix: IPrefix): ConsolePrefixerLogger;
 }
 export declare function consolePrefixer(options: IOptions): ConsolePrefixerLogger;
 export {};

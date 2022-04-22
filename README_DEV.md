@@ -25,3 +25,8 @@
 ###todo
 output en package in output folder zetten
 remove heavy moment lib change with dayjs
+
+would be cool to have 
+ * logger.makeGlobal()
+ * logger.setOptions().info('test'')
+
