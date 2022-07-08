@@ -40,7 +40,6 @@ export declare interface ConsolePrefixerLogger {
 // declare global {
 //     let logger: ConsolePrefixerLogger
 // }
-
 export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
     if (!options) options = {}
     const prefixes = options.prefixes || {}
@@ -60,8 +59,7 @@ export function consolePrefixer(options: IOptions): ConsolePrefixerLogger {
                         debug[attr] = console[attr].bind(console);
                     }
                 } else {
-                    debug[attr] = function () {
-                    };
+                    debug[attr] = function () {};
                 }
             }
         });
